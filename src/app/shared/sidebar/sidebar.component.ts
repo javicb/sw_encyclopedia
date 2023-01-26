@@ -14,27 +14,27 @@ export class SidebarComponent implements OnInit {
     this.items = [
       {
         label: 'Peliculas',
-
+        routerLink: 'films'
       },
       {
         label: 'Personajes',
-
+        routerLink: 'people'
       },
       {
         label: 'Planetas',
-
+        routerLink: 'planets'
       },
       {
         label: 'Especies',
-
+        routerLink: 'species'
       },
       {
         label: 'Naves',
-
+        routerLink: 'starships'
       },
       {
         label: 'Vehiculos',
-
+        routerLink: 'vehicles'
       }
     ];
   }

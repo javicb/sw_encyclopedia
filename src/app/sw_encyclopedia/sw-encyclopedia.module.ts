@@ -7,6 +7,9 @@ import { SpeciesComponent } from './pages/species/species.component';
 import { PlanetsComponent } from './pages/planets/planets.component';
 import { PeopleComponent } from './pages/people/people.component';
 import { FilmsComponent } from './pages/films/films.component';
+import { SwEncyclopediaRoutingModule } from './sw-encyclopedia-routing.module';
+import { NotfoundComponent } from './pages/notfound/notfound.component';
+import { HomeComponent } from './pages/home/home.component';
 
 
 
@@ -18,10 +21,13 @@ import { FilmsComponent } from './pages/films/films.component';
     SpeciesComponent,
     StarshipsComponent,
     VehiclesComponent,
+    NotfoundComponent,
+    HomeComponent,
   ],
   imports: [
     CommonModule,
-    PrimengModule
+    PrimengModule,
+    SwEncyclopediaRoutingModule
   ],
   exports: [
     FilmsComponent,
