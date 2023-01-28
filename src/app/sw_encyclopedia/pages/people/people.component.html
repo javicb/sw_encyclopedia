@@ -1,1 +1,28 @@
-<p>people works!</p>
+<p-table #dt1 [value]="peoples" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+  [tableStyle]="{'min-width': '50rem'}"
+  currentPageReportTemplate="Mostrando {first} de {last} de {totalRecords} entradas" [rowsPerPageOptions]="[10,25,50]"
+  [globalFilterFields]="['name','height','mass']">
+  <ng-template pTemplate="caption">
+    <div class="p-d-flex">
+      <span class="p-input-icon-left ml-auto">
+        <i class="pi pi-search"></i>
+        <input pInputText type="text" (input)="dt1.filterGlobal($any($event.target).value, 'contains')"
+          placeholder="Search keyword" />
+      </span>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="width:33%">Nombre</th>
+      <th style="width:33%">Altura</th>
+      <th style="width:33%">Peso</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-people>
+    <tr>
+      <td>{{people.name}}</td>
+      <td>{{people.height}} cm</td>
+      <td>{{people.mass}} kg</td>
+    </tr>
+  </ng-template>
+</p-table>

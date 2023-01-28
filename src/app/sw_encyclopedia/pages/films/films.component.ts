@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { Films } from '../../interfaces/films';
+import { FilmsService } from '../../services/films.service';
 
 @Component({
   selector: 'app-films',
@@ -6,5 +8,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./films.component.scss']
 })
 export class FilmsComponent {
+  films: Films[] = [];
+
+  constructor(private filmsService: FilmsService) { }
+
+  ngOnInit() {
+    this.getFilms();
+  }
+
+  // Get all films
+  getFilms() {
+    this.filmsService.getFilms().subscribe((data: any) => {
+      this.films = data;
+    });
+  }
 
 }
