@@ -1,30 +1,32 @@
-<p-table #dt1 [value]="films" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
-  [tableStyle]="{'min-width': '50rem'}"
-  currentPageReportTemplate="Mostrando {first} de {last} de {totalRecords} entradas" [rowsPerPageOptions]="[10,25,50]"
-  [globalFilterFields]="['episode_id','title','director','release_date']">
-  <ng-template pTemplate="caption">
-    <div class="p-d-flex">
-      <span class="p-input-icon-left p-ml-auto">
-        <i class="pi pi-search"></i>
-        <input pInputText type="text" (input)="dt1.filterGlobal($any($event.target).value, 'contains')"
-          placeholder="Search keyword" />
-      </span>
-    </div>
-  </ng-template>
-  <ng-template pTemplate="header">
-    <tr>
-      <th style="width:10%">Episodio</th>
-      <th style="width:25%">Titulo</th>
-      <th style="width:25%">Director</th>
-      <th style="width:25%">Fecha de lanzamiento</th>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-film>
-    <tr>
-      <td>{{film.episode_id}}</td>
-      <td>{{film.title}}</td>
-      <td>{{film.director}}</td>
-      <td>{{film.release_date}}</td>
-    </tr>
-  </ng-template>
-</p-table>
+<p-card [style]="{'margin': '1%' }">
+  <p-table #dt1 [value]="films" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+    [tableStyle]="{'min-width': '50rem'}"
+    currentPageReportTemplate="Mostrando {first} de {last} de {totalRecords} entradas" [rowsPerPageOptions]="[10,25,50]"
+    [globalFilterFields]="['episode_id','title','director','release_date']">
+    <ng-template pTemplate="caption">
+      <div class="p-d-flex">
+        <span class="p-input-icon-left p-ml-auto">
+          <i class="pi pi-search"></i>
+          <input pInputText type="text" (input)="dt1.filterGlobal($any($event.target).value, 'contains')"
+            placeholder="Search keyword" />
+        </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width:10%">Episodio</th>
+        <th style="width:25%">Titulo</th>
+        <th style="width:25%">Director</th>
+        <th style="width:25%">Fecha de lanzamiento</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-film>
+      <tr>
+        <td>{{film.episode_id}}</td>
+        <td>{{film.title}}</td>
+        <td>{{film.director}}</td>
+        <td>{{film.release_date}}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-card>

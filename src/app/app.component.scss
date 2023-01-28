@@ -1,21 +1,2 @@
-div.main-text {
-  height: 10em;
-  position: relative;
-  font-size: 60px;
-}
 
-div.main-text p {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-  font-family: 'StarJedi';
-}
-
-@font-face {
-  font-family: 'StarJedi';
-  src: url(../assets/fonts/STJEDISE.TTF);
-}
 
