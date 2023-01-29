@@ -10,15 +10,21 @@ import { VehicleService } from '../../services/vehicle.service';
 export class VehiclesComponent {
 
   vehicles: Vehicle[] = [];
+  isLoading = true;
 
   constructor(private vehicleService: VehicleService) { }
 
   ngOnInit() {
+    this.isLoading = true;
     this.getAllVehicles();
   }
 
   getAllVehicles() {
-    this.vehicleService.getAllVehicles().subscribe(res => this.vehicles = res);
+    this.vehicleService.getAllVehicles().subscribe(res => {
+      this.vehicles = res
+      if (this.vehicles.length > 0)
+        this.isLoading = false;
+    });
   }
 
 }

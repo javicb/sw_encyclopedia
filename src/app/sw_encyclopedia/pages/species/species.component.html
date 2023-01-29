@@ -2,7 +2,7 @@
   <p-table #dt1 [value]="species" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
     [tableStyle]="{'min-width': '50rem'}"
     currentPageReportTemplate="Mostrando {first} de {last} de {totalRecords} entradas" [rowsPerPageOptions]="[10,25,50]"
-    [globalFilterFields]="['name','language','classification','designation']">
+    [globalFilterFields]="['name','language','classification','designation']" [loading]="isLoading">
     <ng-template pTemplate="caption">
       <div class="p-d-flex">
         <span class="p-input-icon-left ml-auto">

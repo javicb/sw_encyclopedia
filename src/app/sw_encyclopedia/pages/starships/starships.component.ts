@@ -10,15 +10,21 @@ import { StarshipService } from '../../services/starship.service';
 export class StarshipsComponent {
 
   starships: Starship[] = [];
+  isLoading = true;
 
   constructor(private starshipService: StarshipService) { }
 
   ngOnInit() {
+    this.isLoading = true;
     this.getAllStarships();
   }
 
   getAllStarships() {
-    this.starshipService.getAllStarships().subscribe(res => this.starships = res);
+    this.starshipService.getAllStarships().subscribe(res => {
+      this.starships = res;
+      if (this.starships.length > 0)
+        this.isLoading = false;
+    });
   }
 
 }

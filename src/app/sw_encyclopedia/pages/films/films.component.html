@@ -2,7 +2,7 @@
   <p-table #dt1 [value]="films" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
     [tableStyle]="{'min-width': '50rem'}"
     currentPageReportTemplate="Mostrando {first} de {last} de {totalRecords} entradas" [rowsPerPageOptions]="[10,25,50]"
-    [globalFilterFields]="['episode_id','title','director','release_date']">
+    [globalFilterFields]="['episode_id','title','director','release_date']" [loading]="isLoading">
     <ng-template pTemplate="caption">
       <div class="p-d-flex">
         <span class="p-input-icon-left p-ml-auto">

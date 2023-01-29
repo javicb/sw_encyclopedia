@@ -10,15 +10,21 @@ import { SpeciesService } from '../../services/species.service';
 export class SpeciesComponent {
 
   species: Species[] = [];
+  isLoading = true;
 
   constructor(private speciesService: SpeciesService) { }
 
   ngOnInit() {
+    this.isLoading = true;
     this.getAllSpecies();
   }
 
   getAllSpecies() {
-    this.speciesService.getAllSpecies().subscribe(res => this.species = res);
+    this.speciesService.getAllSpecies().subscribe(res => {
+      this.species = res;
+      if (this.species.length > 0)
+        this.isLoading = false;
+    });
   }
 
 }

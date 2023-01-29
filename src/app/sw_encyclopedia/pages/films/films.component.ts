@@ -8,18 +8,23 @@ import { FilmsService } from '../../services/films.service';
   styleUrls: ['./films.component.scss']
 })
 export class FilmsComponent {
+
   films: Films[] = [];
+  isLoading = true;
 
   constructor(private filmsService: FilmsService) { }
 
   ngOnInit() {
+    this.isLoading = true;
     this.getFilms();
   }
 
   // Get all films
   getFilms() {
-    this.filmsService.getFilms().subscribe((data: any) => {
-      this.films = data;
+    this.filmsService.getFilms().subscribe(res => {
+      this.films = res;
+      if (this.films.length > 0)
+        this.isLoading = false;
     });
   }
 

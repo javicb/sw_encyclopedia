@@ -2,7 +2,7 @@
   <p-table #dt1 [value]="starships" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
     [tableStyle]="{'min-width': '50rem'}"
     currentPageReportTemplate="Mostrando {first} de {last} de {totalRecords} entradas" [rowsPerPageOptions]="[10,25,50]"
-    [globalFilterFields]="['name','cargo_capacity','crew','designation','manufacturer']">
+    [globalFilterFields]="['name','cargo_capacity','crew','designation','manufacturer']" [loading]="isLoading">
     <ng-template pTemplate="caption">
       <div class="p-d-flex">
         <span class="p-input-icon-left ml-auto">
@@ -26,7 +26,7 @@
         <td>{{starship.name}}</td>
         <td>{{starship.cargo_capacity}} kg</td>
         <td>{{starship.crew}}</td>
-        <td>{{starship.designation}}</td>
+        <td>{{starship.length}}</td>
         <td>{{starship.manufacturer}}</td>
       </tr>
     </ng-template>
