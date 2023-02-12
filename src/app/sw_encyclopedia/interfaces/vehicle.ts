@@ -1,18 +1,14 @@
 export interface Vehicle {
+  id: number;
   name: string;
   model: string;
-  vehicle_class: string;
+  vehicleClass: string;
   manufacturer: string;
-  length: string;
-  cost_in_credits: string;
+  length: number;
+  cost: number;
   crew: string;
-  passengers: string;
-  max_atmosphering_speed: string;
-  cargo_capacity: string;
+  passengers: number;
+  maxSpeed: number;
+  cargoCapacity: number;
   consumables: string;
-  films: string[];
-  pilots: string[];
-  url: string;
-  created: string;
-  edited: string;
 }

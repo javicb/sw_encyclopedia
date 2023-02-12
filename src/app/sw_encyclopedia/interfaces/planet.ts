@@ -1,16 +1,12 @@
 export interface Planet {
+  id: number;
   name: string;
-  diameter: string;
-  rotation_period: string;
-  orbital_period: string;
+  diameter: number;
+  rotationPeriod: number;
+  orbitalPeriod: number;
   gravity: string;
-  population: string;
+  population: number;
   climate: string;
   terrain: string;
-  surface_water: string;
-  residents: string[];
-  films: string[];
-  url: string;
-  created: string;
-  edited: string;
+  surfaceWater: string;
 }

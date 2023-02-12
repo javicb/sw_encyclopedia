@@ -22,6 +22,7 @@ export class StarshipsComponent {
   getAllStarships() {
     this.starshipService.getAllStarships().subscribe(res => {
       this.starships = res;
+      console.log(this.starships);
       if (this.starships.length > 0)
         this.isLoading = false;
     });

@@ -21,7 +21,7 @@ export class VehiclesComponent {
 
   getAllVehicles() {
     this.vehicleService.getAllVehicles().subscribe(res => {
-      this.vehicles = res
+      this.vehicles = res;
       if (this.vehicles.length > 0)
         this.isLoading = false;
     });

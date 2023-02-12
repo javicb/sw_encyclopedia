@@ -9,16 +9,21 @@ import { expand, reduce } from 'rxjs/operators';
 })
 export class FilmsService {
 
-  baseUrl = 'https://swapi.dev/api/films/';
+  baseUrl = 'https://app-starwarsapi-westeu-001.azurewebsites.net/api/Films/';
 
   constructor(private http: HttpClient) { }
 
-  // Gete all films
+  // Get all films if the results are paginated from the swapi.dev
+  // getFilms(): Observable<Films[]> {
+  //   return this.http.get<any>(this.baseUrl).pipe(
+  //     expand(response => response.next ? this.http.get(response.next) : EMPTY),
+  //     reduce((acc, val: any) => acc.concat(val.results), [])
+  //   );
+  // }
+
+  // Get all films
   getFilms(): Observable<Films[]> {
-    return this.http.get<any>(this.baseUrl).pipe(
-      expand(response => response.next ? this.http.get(response.next) : EMPTY),
-      reduce((acc, val: any) => acc.concat(val.results), [])
-    );
+    return this.http.get<any>(this.baseUrl);
   }
 
 }

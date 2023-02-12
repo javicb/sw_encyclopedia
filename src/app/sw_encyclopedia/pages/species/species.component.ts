@@ -22,6 +22,7 @@ export class SpeciesComponent {
   getAllSpecies() {
     this.speciesService.getAllSpecies().subscribe(res => {
       this.species = res;
+      console.log(this.species);
       if (this.species.length > 0)
         this.isLoading = false;
     });

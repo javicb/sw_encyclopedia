@@ -23,6 +23,7 @@ export class PlanetsComponent {
   getAllPlanets() {
     this.planetService.getAllPlanets().subscribe(res => {
       this.planets = res;
+      console.log(this.planets);
       if (this.planets.length > 0)
         this.isLoading = false;
     });

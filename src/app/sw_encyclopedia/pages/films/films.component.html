@@ -17,15 +17,17 @@
         <th style="width:10%">Episodio</th>
         <th style="width:25%">Titulo</th>
         <th style="width:25%">Director</th>
+        <th style="width:25%">Productor</th>
         <th style="width:25%">Fecha de lanzamiento</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-film>
       <tr>
-        <td>{{film.episode_id}}</td>
+        <td>{{film.episode}}</td>
         <td>{{film.title}}</td>
         <td>{{film.director}}</td>
-        <td>{{film.release_date}}</td>
+        <td>{{film.productor}}</td>
+        <td>{{film.releaseDate | date: 'dd/MM/yyyy'}}</td>
       </tr>
     </ng-template>
   </p-table>

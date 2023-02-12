@@ -1,21 +1,28 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { EMPTY, expand, reduce } from 'rxjs';
+import { EMPTY, Observable } from 'rxjs';
+import { expand, reduce, tap } from "rxjs/operators";
+import { Vehicle } from '../interfaces/vehicle';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VehicleService {
 
-  baseUrl = 'https://swapi.dev/api/vehicles/';
+  baseUrl = 'https://app-starwarsapi-westeu-001.azurewebsites.net/api/Vehicles/';
 
   constructor(private http: HttpClient) { }
 
+  // Get all vehicles if the results are paginated from the swapi.dev
+  // getAllVehicles() {
+  //   return this.http.get<any>(this.baseUrl).pipe(
+  //     expand(response => response.next ? this.http.get(response.next) : EMPTY),
+  //     reduce((acc, val: any) => acc.concat(val.results), [])
+  //   );
+  // }
+
   // Get all vehicles
-  getAllVehicles() {
-    return this.http.get<any>(this.baseUrl).pipe(
-      expand(response => response.next ? this.http.get(response.next) : EMPTY),
-      reduce((acc, val: any) => acc.concat(val.results), [])
-    );
+  getAllVehicles(): Observable<Vehicle[]> {
+    return this.http.get<any>(this.baseUrl);
   }
 }
